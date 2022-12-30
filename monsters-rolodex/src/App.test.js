@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, getByTestId } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('App is being rendered', () => {
+  // Render the component
+  const { container } = render(<App />);
+
+  // Check for the presence of an element with the test ID "app"
+  const element = getByTestId(container, 'app');
+  expect(element).toBeInTheDocument();
 });

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {Component} from 'react';
 
@@ -18,7 +17,7 @@ class App extends Component {
                     return { monsters: users }
             },
                 () => {
-                    console.log(this.state)
+                    //console.log(this.state)
                 }
             ))
     }
@@ -26,7 +25,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" data-testid="app">
                 {
                     this.state.monsters.map((monster) => {
                         return (
