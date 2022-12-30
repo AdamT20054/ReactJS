@@ -8,10 +8,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+defaults:
+    run:
+      working-directory: 'frontend'
 
 jobs:
   build:
-
+      
     runs-on: ubuntu-latest
 
     strategy:
