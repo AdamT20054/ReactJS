@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: 'Adam'
+        }
+    }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo"/>
+            <p>
+              Hi {this.state.name}! {/** Get name keys value from components state */}
+            </p>
+            <button>  {/* This is a button */}
+                Change Name {/* This is the text inside the button */}
+            </button> {/* This is the end of the button */}
+          </header>
+        </div>
+    );
+  }
 }
+
 
 export default App;
