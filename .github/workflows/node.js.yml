@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 defaults:
     run:
-      working-directory: 'frontend'
+      working-directory: 'monsters-rolodex'
 
 jobs:
   build:
