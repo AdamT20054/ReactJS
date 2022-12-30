@@ -5,7 +5,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            name: 'Adam'
+            name: { firstName: 'Adam', lastName: `O'neill` }
         }
     }
 
@@ -15,11 +15,13 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo"/>
             <p>
-              Hi {this.state.name}! {/** Get name keys value from components state */}
+              Hi {this.state.name.firstName}!
             </p>
-            <button>  {/* This is a button */}
-                Change Name {/* This is the text inside the button */}
-            </button> {/* This is the end of the button */}
+            <button onClick={() => {
+                this.setState({name: {firstName: 'Bob', lastName: 'Evans'}})
+            }}>
+                Change Name
+            </button>
           </header>
         </div>
     );
