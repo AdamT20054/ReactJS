@@ -18,8 +18,13 @@ class App extends Component {
               Hi {this.state.name.firstName}!
             </p>
             <button onClick={() => {
-                this.setState({name: {firstName: 'Bob', lastName: 'Evans'}})
-                console.log(this.state)
+                this.setState(() => {
+                    return {
+                        name: {firstName: 'Bob', lastName: 'Evans'}
+                    }
+                }, () => {
+                    console.log(this.state); // ONLY going to run after the state changes have updated
+                })
             }}>
                 Change Name
             </button>
