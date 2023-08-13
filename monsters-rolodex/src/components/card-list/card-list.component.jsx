@@ -4,10 +4,16 @@ import { Component } from 'react';
 class CardList extends Component {
 
   render() {
+    const { monsters } = this.props;
     return (
       <div>
-        Hello, I'm the cardlist component
-        <h1> Hello </h1>
+        {
+          monsters.map(monster => {
+            return <div key={monster.id}>
+              <h2>{monster.name}</h2>
+            </div>
+          })
+        }
       </div>
     )
   }

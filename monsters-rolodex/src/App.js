@@ -56,14 +56,8 @@ class App extends Component {
 
         <h1>Monsters Rolodex</h1>
 
-        {/*
-          filteredMonsters.map(monster => {
-            return <div key={monster.id}>
-              <h2>{monster.name}</h2>
-            </div>
-          })
-        */}
-        <CardList />
+
+        <CardList monsters={filteredMonsters}/>
 
       </div>
     )
