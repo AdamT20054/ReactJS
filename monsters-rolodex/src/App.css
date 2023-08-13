@@ -23,7 +23,17 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.search-box {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    width: 200px;
+    box-shadow: 0 0 10px orangered;
+    height: 30px;
+}
 .App-link {
   color: #61dafb;
 }
