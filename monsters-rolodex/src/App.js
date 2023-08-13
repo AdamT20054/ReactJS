@@ -4,11 +4,10 @@ import './App.css'
 
 class App extends Component {
   constructor() { // Runs First
-    super()
+    super();
     this.state = {
       monsters: [],
       searchField: '',
-      Searchmonsters: []
     }
     console.log('Constructor')
   }
@@ -21,29 +20,42 @@ class App extends Component {
       .then(users => this.setState(() => {
         return {
           monsters: users,
-          Searchmonsters: users
         }
       }, () => {
         console.log(this.state.monsters)
       }))
   }
 
+
+  onSearchChange = (event) => {
+    this.setState(() => {
+      return { searchField: event.target.value }
+    });
+  }
+
+
   // Runs Second, mounts initial UI state to the DOM. Does not mount again, just updates.
   render() {
     console.log('Render')
-    const filteredMonsters = this.state.monsters.filter(monster => {
-      return monster.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredMonsters = monsters.filter(monster => {
+      return monster.name.toLowerCase().includes(searchField.toLowerCase())
     })
 
     return (
       <div className='App'>
-        <input className='search-box' type='search' placeholder='Search Monsters' onChange={(event) => {
-          this.setState(() => {
-            return { searchField: event.target.value }
-          })
-        }}
+
+        <input className='search-box'
+               type='search'
+               placeholder='Search Monsters'
+               onChange={onSearchChange}
         />
+
         <h1>Monsters Rolodex</h1>
+
         {
           filteredMonsters.map(monster => {
             return <div key={monster.id}>
@@ -51,6 +63,7 @@ class App extends Component {
             </div>
           })
         }
+
       </div>
     )
   }
