@@ -34,7 +34,7 @@ class App extends Component {
   }
 
 
-  // Runs Second, mounts initial UI state to the DOM. Does not mount again, just updates.
+  // Runs Second, mounts the initial UI state to the DOM. Does not mount again, just updates.
   render() {
     console.log('Render')
 
