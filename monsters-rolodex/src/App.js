@@ -7,19 +7,22 @@ class App extends Component {
     super()
     this.state = {
       monsters: [],
+      searchField: '',
       Searchmonsters: []
     }
-    console.log("Constructor")
+    console.log('Constructor')
   }
 
   // Runs after the initial UI has been rendered (mounted) to the DOM
   componentDidMount() {
-    console.log("ComponentDidMount")
+    console.log('ComponentDidMount')
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState(() => {
-        return { monsters: users,
-                 Searchmonsters: users}
+        return {
+          monsters: users,
+          Searchmonsters: users
+        }
       }, () => {
         console.log(this.state.monsters)
       }))
@@ -27,19 +30,22 @@ class App extends Component {
 
   // Runs Second, mounts initial UI state to the DOM. Does not mount again, just updates.
   render() {
-    console.log("Render")
+    console.log('Render')
+    const filteredMonsters = this.state.monsters.filter(monster => {
+      return monster.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    })
+
     return (
       <div className='App'>
         <input className='search-box' type='search' placeholder='Search Monsters' onChange={(event) => {
-          this.setState((state) => {
-            return { Searchmonsters: state.monsters.filter(monster => monster.name.toLowerCase().includes(event.target.value.toLowerCase()))}
-          }, () => {
-            console.log(event.target.value)
+          this.setState(() => {
+            return { searchField: event.target.value }
           })
-        }}/>
+        }}
+        />
         <h1>Monsters Rolodex</h1>
         {
-          this.state.Searchmonsters.map(monster => {
+          filteredMonsters.map(monster => {
             return <div key={monster.id}>
               <h2>{monster.name}</h2>
             </div>
