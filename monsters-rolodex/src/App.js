@@ -9,15 +9,19 @@ class App extends Component {
              monsters: [
                  {
                     name: 'Linda',
+                    id: '1'
                 },
                 {
                     name: 'Frank',
+                    id: '2'
                 },
                 {
                     name: 'Jacky',
+                    id: '3'
                 },
                 {
                     name: 'Bobby',
+                    id: '4'
                 }
              ]
         }
@@ -29,7 +33,9 @@ class App extends Component {
             <h1>Monsters Rolodex</h1>
             {
                 this.state.monsters.map(monster => {
-                    return <h1>{monster.name}</h1>
+                    return <div key={monster.id}>
+                        <h1>{monster.name}</h1>
+                    </div>
                 })
             }
         </div>
