@@ -3,13 +3,14 @@ import { Component } from 'react'
 import './App.css'
 
 class App extends Component {
-  constructor() {
+  constructor() { // Runs First
     super()
     this.state = {
       monsters: []
     }
   }
 
+  // Runs after the component output has been rendered to the DOM
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
@@ -20,7 +21,7 @@ class App extends Component {
       }))
   }
 
-
+  // Runs Second, mounts initial UI state to the DOM
   render() {
     return (
       <div className='App'>
