@@ -10,7 +10,7 @@ class App extends Component {
     }
   }
 
-  // Runs after the component output has been rendered to the DOM
+  // Runs after the initial UI has been rendered (mounted) to the DOM
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
@@ -21,7 +21,7 @@ class App extends Component {
       }))
   }
 
-  // Runs Second, mounts initial UI state to the DOM
+  // Runs Second, mounts initial UI state to the DOM. Does not mount again, just updates.
   render() {
     return (
       <div className='App'>
