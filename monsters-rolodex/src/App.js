@@ -3,6 +3,27 @@ import CardList from './components/card-list/card-list.component'
 import SearchBox from './components/search-bar/search-box.component'
 import './App.css'
 
+const App = () => {
+  // React will run top to bottom, anything in the "return" will be rendered to the DOM".
+  return (
+    <div className='App'>
+      <h1 className="app-title">Monsters Rolodex</h1>
+
+      <SearchBox
+        onChangeHandler={onSearchChange}
+        placeholder={'Search Monster'}
+        className={'monsters-search-box'}
+      />
+      <
+        CardList
+        monsters={filteredMonsters}
+      />
+
+    </div>
+  )
+}
+
+
 class App extends Component {
   constructor() { // Runs First
     super();
@@ -46,23 +67,7 @@ class App extends Component {
       return monster.name.toLowerCase().includes(searchField.toLowerCase())
     })
 
-    return (
-      <div className='App'>
-        <h1 className="app-title">Monsters Rolodex</h1>
-
-        <SearchBox
-          onChangeHandler={onSearchChange}
-          placeholder={'Search Monster'}
-          className={'monsters-search-box'}
-        />
-        <
-          CardList
-            monsters={filteredMonsters}
-        />
-
-      </div>
-    )
   }
 }
 
-export default App
+export default App;
